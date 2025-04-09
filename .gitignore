@@ -1,0 +1,50 @@
+# ========== Python bytecode ==========
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ========== C extensions ==========
+*.so
+
+# ========== Jupyter Notebook ==========
+.ipynb_checkpoints/
+
+# ========== VSCode ==========
+.vscode/
+
+# ========== PyTorch/ML files ==========
+*.pt
+*.pth
+*.ckpt
+*.log
+
+# ========== Data ==========
+*.json
+*.csv
+*.npy
+*.npz
+*.pkl
+*.yaml
+*.yml
+*.txt
+
+# ========== Images ==========
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# ========== Virtual environments ==========
+env/
+venv/
+.venv/
+
+# ========== Custom ignores ==========
+.DS_Store
+.idea/
+*.swp
+
+#Custom ignores
+*.yaml.log
+
+
