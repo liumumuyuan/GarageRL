@@ -24,7 +24,6 @@ __pycache__/
 *.npy
 *.npz
 *.pkl
-*.yaml
 *.yml
 *.txt
 

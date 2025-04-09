@@ -1,0 +1,130 @@
+############################################
+###### Hyperparameters
+shared:
+    device              : 'cuda'
+    use_seed            : True
+    seed                : 0
+    epsilon             : 0.000001    # a very small value
+
+#############################################
+#for vanilla implementation
+#it seems BC is the core, and RL improves robustness by adding noise.
+#tau should be smaller with less BC for more stable training process
+TD3BC:
+    normalize_states    : True
+    hid_layers          : [256,256]
+    batch_size          : 128
+
+    alpha               : 10.0 # larger alpha means more BC
+    lr_actor            : 0.000035
+    lr_critic           : 0.00035
+    gamma               : 0.99
+    actor_final_init    : 0.003 # final layer weights initalizaiton, not too large
+    critic_final_init   : 0.003
+    mean_act_env        : 0. # for Gaussian noise
+    std_act_env         : 0.
+    mean_act            : 0.
+    std_act             : 0.2  # larger BC permits larger std; better robustness
+    c_act_env           : 0.5  # clipping threshold
+    c_act               : 0.5
+    tau                 : 0.0002
+    d                   : 2
+
+    param_init          : 'uniform'
+    norm_method         : 'layer norm'
+    actor_path          : 'ddpg/models/ddpg_actor_model.pt'
+    target_actor_path   : 'ddpg/models/ddpg_target_actor_model.pt'
+    critic_path         : 'ddpg/models/ddpg_critic_model.pt'
+    target_critic_path  : 'ddpg/models/ddpg_critic_actor_model.pt'
+
+# #############################################
+#TD3BC: for vanilla implementation
+#     hid_layers          : [256,256]
+#     batch_size          : 128
+#     normalize_states    : True
+#
+#     alpha               : 10. # larger alpha means more BC
+#     lr_actor            : 0.000035
+#     lr_critic           : 0.00035
+#     gamma               : 0.99
+#     actor_final_init    : 0.003 # final layer weights initalizaiton, not too large
+#     critic_final_init   : 0.003
+#     mean_act_env        : 0. # for Gaussian noise
+#     std_act_env         : 0.
+#     mean_act            : 0.
+#     std_act             : 0.1
+#     c_act_env           : 0.2 # clipping threshold
+#     c_act               : 0.2
+#     tau                 : 0.0002
+#     d                   : 2
+#
+#     param_init          : 'uniform'
+#     norm_method         : 'layer norm'
+#     actor_path          : 'ddpg/models/ddpg_actor_model.pt'
+#     target_actor_path   : 'ddpg/models/ddpg_target_actor_model.pt'
+#     critic_path         : 'ddpg/models/ddpg_critic_model.pt'
+#     target_critic_path  : 'ddpg/models/ddpg_critic_actor_model.pt'
+
+# TD3BC:
+# #for original implementation
+# #it seems BC is the core, and RL improves robustness by adding noise (hopefully)
+# #tau should be smaller with less BC for more stable training process
+#     normalize_states    : True
+#     hid_layers          : [256,256]
+#     batch_size          : 128
+#
+#     alpha               : 2.5 # larger alpha means more RL, alphas=0 means pure BC
+#     lr_actor            : 0.000035
+#     lr_critic           : 0.00035
+#     gamma               : 0.99
+#     actor_final_init    : 0.003 # final layer weights initalizaiton, not too large
+#     critic_final_init   : 0.003
+#     mean_act_env        : 0. # for Gaussian noise
+#     std_act_env         : 0.
+#     mean_act            : 0.
+#     std_act             : 0.2  # larger BC permits larger std; better robustness
+#     c_act_env           : 0.5  # clipping threshold
+#     c_act               : 0.5
+#     tau                 : 0.000002
+#     d                   : 2
+#
+#     param_init          : 'uniform'
+#     norm_method         : 'layer norm'
+#     actor_path          : 'ddpg/models/ddpg_actor_model.pt'
+#     target_actor_path   : 'ddpg/models/ddpg_target_actor_model.pt'
+#     critic_path         : 'ddpg/models/ddpg_critic_model.pt'
+#     target_critic_path  : 'ddpg/models/ddpg_critic_actor_model.pt'
+
+# #############################################
+# TD3BC:
+# # for original implementation
+# #it seems BC is the core, and RL improves robustness by adding noise.
+# #tau should be smaller with less BC for more stable training process
+#     normalize_states    : True
+#     hid_layers          : [256,256]
+#     batch_size          : 128
+#
+#     alpha               : 0. # larger alpha means more RL, alphas=0 means pure BC
+#     lr_actor            : 0.000035
+#     lr_critic           : 0.00035
+#     gamma               : 0.99
+#     actor_final_init    : 0.003 # final layer weights initalizaiton, not too large
+#     critic_final_init   : 0.003
+#     mean_act_env        : 0. # for Gaussian noise
+#     std_act_env         : 0.
+#     mean_act            : 0.
+#     std_act             : 0.2  # larger BC permits larger std; better robustness
+#     c_act_env           : 0.5  # clipping threshold
+#     c_act               : 0.5
+#     tau                 : 0.000002
+#     d                   : 2
+#
+#     param_init          : 'uniform'
+#     norm_method         : 'layer norm'
+#     actor_path          : 'ddpg/models/ddpg_actor_model.pt'
+#     target_actor_path   : 'ddpg/models/ddpg_target_actor_model.pt'
+#     critic_path         : 'ddpg/models/ddpg_critic_model.pt'
+#     target_critic_path  : 'ddpg/models/ddpg_critic_actor_model.pt'
+
+
+

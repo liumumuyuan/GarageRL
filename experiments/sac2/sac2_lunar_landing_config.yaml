@@ -1,0 +1,48 @@
+############################################
+###### Hyperparameters
+shared:
+    device              : 'cuda'
+    use_seed            : True
+    seed                : 0
+    epsilon             : 0.000001    # avery small value
+
+##############################################
+SAC2:
+    hid_layers          : [512,256]
+    batch_size          : 64
+    max_buffer_len      : 1000000
+
+    lr_actor            : 0.000025
+    lr_critic           : 0.00025
+    tau                 : 0.001
+    gamma               : 0.99
+    actor_final_init    : 0.003 # final layer weights initalizaiton, not too large
+    critic_final_init   : 0.003
+
+    mean_act_env        : 0. # for Gaussian noise
+    std_act_env         : 0.1
+    mean_act            : 0
+    std_act             : 0.1
+    c_act_env           : 0.05 # clipping threshold
+    c_act               : 0.05
+
+    alpha_init          : 0.1
+    target_entropy_coef : 0.98 # a bit conservative
+    lr_alpha            : 0.001
+    log_clamp_min       : -20
+    log_clamp_max       : 2
+
+    d                   : 1
+
+    param_init          : 'uniform'
+    norm_method         : 'layer norm'
+    actor_path          : 'ddpg/models/ddpg_actor_model.pt'
+    target_actor_path   : 'ddpg/models/ddpg_target_actor_model.pt'
+    critic_path         : 'ddpg/models/ddpg_critic_model.pt'
+    target_critic_path  : 'ddpg/models/ddpg_critic_actor_model.pt'
+    replay_items:
+        - state
+        - action
+        - reward
+        - state_next
+        - done

@@ -1,0 +1,28 @@
+############################################
+###### Hyperparameters
+shared:
+    device              : 'cuda'
+    use_seed            : True
+    seed                : 0
+    epsilon             : 0.000001    # a very small value
+
+#############################################
+PPO:
+    hid_layers          : [64,64]
+    batch_size          : 5
+    max_buffer_len      : 1000000
+    n_epochs            : 1
+    buffer_minsize      : 20
+
+    critic_lr           : 0.0003
+    actor_lr            : 0.0003
+    gamma               : 0.99
+    gae_lambda          : 0.99
+    policy_clip         : 0.1
+
+    lmbda               : 0.5
+
+
+
+
+
